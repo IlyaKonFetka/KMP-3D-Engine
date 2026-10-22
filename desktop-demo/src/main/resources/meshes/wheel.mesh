@@ -1,0 +1,72 @@
+# wheel.mesh — cylinder wheel, axis along local X
+# radius = 0.15 (Y/Z), half-width = 0.10 (X)
+# 18 vertices : 8 front ring + 8 back ring + 1 center-front + 1 center-back
+# 32 triangles: 8 front cap + 8 back cap + 16 sides
+#
+# Vertex layout:
+#   0..7   front ring  (x = +0.10)
+#   8..15  back ring   (x = -0.10)
+#   16     cap center front
+#   17     cap center back
+
+# front ring (x = +0.10, going CCW when viewed from +X)
+v  0.10  0.150  0.000
+v  0.10  0.106  0.106
+v  0.10  0.000  0.150
+v  0.10 -0.106  0.106
+v  0.10 -0.150  0.000
+v  0.10 -0.106 -0.106
+v  0.10  0.000 -0.150
+v  0.10  0.106 -0.106
+
+# back ring (x = -0.10)
+v -0.10  0.150  0.000
+v -0.10  0.106  0.106
+v -0.10  0.000  0.150
+v -0.10 -0.106  0.106
+v -0.10 -0.150  0.000
+v -0.10 -0.106 -0.106
+v -0.10  0.000 -0.150
+v -0.10  0.106 -0.106
+
+# cap centers
+v  0.10  0.000  0.000
+v -0.10  0.000  0.000
+
+# front cap  (normal +X)
+f 16 0 1
+f 16 1 2
+f 16 2 3
+f 16 3 4
+f 16 4 5
+f 16 5 6
+f 16 6 7
+f 16 7 0
+
+# back cap  (normal -X)
+f 17 9 8
+f 17 10 9
+f 17 11 10
+f 17 12 11
+f 17 13 12
+f 17 14 13
+f 17 15 14
+f 17 8 15
+
+# sides  (two triangles per strip, outward normal)
+f 0 8 1
+f 9 1 8
+f 1 9 2
+f 10 2 9
+f 2 10 3
+f 11 3 10
+f 3 11 4
+f 12 4 11
+f 4 12 5
+f 13 5 12
+f 5 13 6
+f 14 6 13
+f 6 14 7
+f 15 7 14
+f 7 15 0
+f 8 0 15
